@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Font\Roboto-Black.ttf" />
+    <None Remove="Font\Roboto-Light.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Enum\" />
+    <Folder Include="Navigation\" />
+    <Folder Include="Styles\" />
+    <Folder Include="Font\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro" Version="1.6.5" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="2.3.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.0.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\ToDo.Core\ToDo.Core.csproj" />
+    <ProjectReference Include="..\WPF.Utils\WPF.Utils.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Font\Roboto-Black.ttf" />
+    <Resource Include="Font\Roboto-Light.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Pages\ToDo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Pages\ToDo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

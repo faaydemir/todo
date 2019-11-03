@@ -1,0 +1,48 @@
+﻿<todo_ui:UserControlBase x:Class="ToDo.UI.Pages.AuthenticationPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:todo_ui="clr-namespace:ToDo.UI"
+             xmlns:local="clr-namespace:ToDo.UI.Pages"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="0,30">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" BorderBrush="{StaticResource listBackgroundColor}" BorderThickness="0,0,5,0">
+            <Grid>
+                <StackPanel VerticalAlignment="Top">
+                    <TextBlock Style="{StaticResource TextBlockInfo}" Visibility="{Binding IsLoginView, Converter={StaticResource BoolToInverseVisibilityConverter}}" HorizontalAlignment="Center" Text="If you alreay have an account please login"></TextBlock>
+                    <TextBlock Style="{StaticResource TextBlockTitle}" HorizontalAlignment="Center">Login</TextBlock>
+                </StackPanel>
+                <StackPanel Margin="30" VerticalAlignment="Center" Visibility="{Binding IsLoginView, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <TextBlock  Style="{StaticResource TextBlockFormLabel}">Mail</TextBlock>
+                    <TextBox  Text="{Binding UserName}" Style="{StaticResource TextBoxForm}"></TextBox>
+                    <TextBlock  Style="{StaticResource TextBlockFormLabel}">Password</TextBlock>
+                    <TextBox  Text="{Binding Password}" Style="{StaticResource TextBoxForm}"></TextBox>
+                    <Button Margin="30,20" Command="{Binding Login}" Style="{StaticResource ButtonAction}">Login</Button>
+                    <TextBlock Text="{Binding LoginError}" Style="{StaticResource TextBlockInfo}" FontSize="8" Foreground="Red" ></TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Grid Grid.Column="1">
+            <StackPanel VerticalAlignment="Top">
+                <TextBlock Style="{StaticResource TextBlockInfo}" Visibility="{Binding IsLoginView, Converter={StaticResource BoolToVisibilityConverter}}" HorizontalAlignment="Center" Text="Create an  account to login"></TextBlock>
+                <TextBlock  Style="{StaticResource TextBlockTitle}" HorizontalAlignment="Center">Sing Up</TextBlock>
+            </StackPanel>
+            <StackPanel  Margin="30" VerticalAlignment="Center"  Visibility="{Binding IsLoginView, Converter={StaticResource BoolToInverseVisibilityConverter}}">
+                <TextBlock  Style="{StaticResource TextBlockFormLabel}">Mail</TextBlock>
+                <TextBox  Text="{Binding UserName}" Style="{StaticResource TextBoxForm}"></TextBox>
+                <TextBlock  Style="{StaticResource TextBlockFormLabel}">Password</TextBlock>
+                <TextBox  Text="{Binding Password}" Style="{StaticResource TextBoxForm}"></TextBox>
+                <TextBlock  Style="{StaticResource TextBlockFormLabel}">Re Enter Password</TextBlock>
+                <TextBox  Text="{Binding RePassword}" Style="{StaticResource TextBoxForm}"></TextBox>
+                <Button Margin="30,20"  Command="{Binding Singup}" Style="{StaticResource ButtonAction}">Signup</Button>
+                <TextBlock Text="{Binding SingupError}" Style="{StaticResource TextBlockInfo}" FontSize="8" Foreground="Red" ></TextBlock>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</todo_ui:UserControlBase>

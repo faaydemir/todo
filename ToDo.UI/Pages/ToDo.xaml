@@ -1,0 +1,20 @@
+﻿<todo_ui:UserControlBase x:Class="ToDo.UI.Pages.TodoPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:todo_ui="clr-namespace:ToDo.UI"
+             xmlns:local="clr-namespace:ToDo.UI.Pages"
+             xmlns:views="clr-namespace:ToDo.UI.Views"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <views:ToDoList Grid.Column="0" />
+        <views:ToDoDetail Grid.Column="1" />
+    </Grid>
+</todo_ui:UserControlBase>
