@@ -1,4 +1,4 @@
-# todo app
+# todo app (!not completed)
 A todo app developed with  wpf 
 
 ## todo list
