@@ -44,15 +44,15 @@
 
                     <Style TargetType="{x:Type TextBlock}">
                         <Setter Property="FontSize" Value="14" />
-                        <!--<Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>-->
+                        <Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>
                     </Style>
                     <Style TargetType="{x:Type TextBox}">
                         <Setter Property="FontSize" Value="14" />
-                        <!--<Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>-->
+                        <Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>
                     </Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="FontSize" Value="14" />
-                        <!--<Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>-->
+                        <Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>
                     </Style>
 
                     <Style  x:Key="ButtonFlat" TargetType="{x:Type Button}">
@@ -88,32 +88,32 @@
                     <Style  x:Key="TextBlockTitle" TargetType="{x:Type TextBlock}">
                         <Setter Property="Margin" Value="10"></Setter>
                         <Setter Property="FontSize" Value="20"></Setter>
-                        <!--<Setter Property="FontFamily" Value="/Font/#Roboto Black"></Setter>-->
+                        <Setter Property="FontFamily" Value="/Font/#Roboto Black"></Setter>
                     </Style>
 
                     <Style  x:Key="TextBlockInfo" TargetType="{x:Type TextBlock}">
                         <Setter Property="Margin" Value="10,10,10,0"></Setter>
                         <Setter Property="FontSize" Value="10"></Setter>
-                        <!--<Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>-->
+                        <Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>
                     </Style>
 
                     <Style  x:Key="TextBlockFormLabel" TargetType="{x:Type TextBlock}">
                         <Setter Property="Margin" Value="10,10,10,0"></Setter>
                         <Setter Property="FontSize" Value="10"></Setter>
-                        <!--<Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>-->
+                        <Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>
                     </Style>
 
                     <Style  x:Key="PasswordBoxForm" TargetType="{x:Type PasswordBox}">
                         <Setter Property="Margin" Value="20,3,10,10"></Setter>
                         <Setter Property="FontSize" Value="30"></Setter>
-                        <!--<Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>-->
+                        <Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>
                     </Style>
 
                     <Style  x:Key="TextBoxForm"  TargetType="{x:Type TextBox}">
                         <Setter Property="Margin" Value="20,3,10,10"></Setter>
                         <Setter Property="FontSize" Value="20"></Setter>
                         <Setter Property="Padding" Value="5"></Setter>
-                        <!--<Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>-->
+                        <Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>
                     </Style>
 
                     <Style x:Key="ButtonAction"  TargetType="{x:Type Button}">
@@ -121,7 +121,7 @@
                         <Setter Property="Padding" Value="5"></Setter>
                         <Setter Property="Foreground" Value="White"></Setter>
                         <Setter Property="Background" Value="{StaticResource activeBlue}"></Setter>
-                        <!--<Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>-->
+                        <Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="Button">
@@ -172,13 +172,13 @@
                 <ResourceDictionary>
                     <Style  x:Key="TextBlockTopicStyle" TargetType="{x:Type TextBlock}">
                         <Setter Property="FontSize" Value="18"></Setter>
-                        <!--<Setter Property="FontFamily" Value="/Font/#Roboto Black"></Setter>-->
+                        <Setter Property="FontFamily" Value="/Font/#Roboto Black"></Setter>
                         <Setter Property="Foreground" Value="{StaticResource fontGray}"></Setter>
                         <Setter Property="Typography.Capitals"      Value="AllSmallCaps"></Setter>
                     </Style>
                     <Style  x:Key="TextBlockTodoStyle" TargetType="{x:Type TextBlock}">
                         <Setter Property="FontSize" Value="20"></Setter>
-                        <!--<Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>-->
+                        <Setter Property="FontFamily" Value="/Font/#Roboto Ligth"></Setter>
                         <Style.Triggers>
                             <Trigger Property ="IsMouseOver" Value="True">
                                 <Setter Property= "Foreground" Value="{StaticResource activeBlue}" />
