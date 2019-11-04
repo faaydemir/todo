@@ -47,9 +47,9 @@ namespace ToDo.DataAccess.DataModels.Entities
 
     public enum NoteStatus
     {
-        Active,
-        Completed,
-        Archived,
+        Active = 0,
+        Completed = 1,
+        Archived = 2,
     }
 
     public enum NoteType

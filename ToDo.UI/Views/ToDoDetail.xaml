@@ -50,8 +50,9 @@
                 Margin="0,10"
                 Background="Transparent"
                 BorderBrush="{StaticResource backgroundBrush}"
-                SelectedTimeFormat="Short"                             
-                SelectedDateFormat="Short"/>
+                SelectedTimeFormat="Short"
+                SelectedDateFormat="Short"
+                IsReadOnly="{Binding IsEditMode,Converter={StaticResource BoolToInverseBooleanConverter}}" />
             <TextBox VerticalAlignment="Center"  
                      Style="{StaticResource TextBoxTitleStyle}" 
                      DockPanel.Dock="Left" 

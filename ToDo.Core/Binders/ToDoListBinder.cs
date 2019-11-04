@@ -11,6 +11,7 @@ using ToDo.Core.ViewModel;
 using ToDo.DataAccess;
 using ToDo.DataAccess.DataModels.Entities;
 using ToDo.DataAccess.Repositories;
+using ToDo.IU.Core.Enums;
 using ToDoUICore.MVVMHelper;
 
 namespace ToDo.UI.Views
@@ -195,12 +196,25 @@ namespace ToDo.UI.Views
             //close filter window
             TypedModel.IsFilterWindowsOpened = false;
             var topics = await TopicRepository.GetAllAsync();
+
+            Func<TodoEntity, object> orderMethod = x =>
+            {
+                return TypedModel.OrderBy switch
+                {
+                    OrderType.Name => x.Title,
+                    OrderType.CreatedAt => x.CreatedAt,
+                    OrderType.Deathline => x.Deathline,
+                    OrderType.Status => (int)x.Status,
+                    _ => x.Title,
+                };
+            };
             //TODO make filtering in task
             // filter list
             var filteredList = topics.Select(topic =>
                             {
                                 if (topic.TodoList != null && topic.TodoList.Any())
                                 {
+        
                                     topic.TodoList = topic.TodoList.Where(toDo =>
                                            toDo.IsMatchFilter(
                                                searchQuery: TypedModel.SearchQuery,
@@ -208,6 +222,7 @@ namespace ToDo.UI.Views
                                                filterToday: TypedModel.FilterToday,
                                                filterNotCompleted: TypedModel.FilterNotCompleted,
                                                filterExpired: TypedModel.FilterExpired))
+                                            .OrderBy(orderMethod)
                                             .ToList();
                                 }
                                 return topic;
