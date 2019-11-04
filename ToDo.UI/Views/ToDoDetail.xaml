@@ -6,30 +6,35 @@
              xmlns:todo_ui="clr-namespace:ToDo.UI"
              xmlns:local="clr-namespace:ToDo.UI.Pages"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"      
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
         <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Margin="20,0">
-            <Button Style="{StaticResource Button_ActionStyle}"
+            <StackPanel Orientation="Horizontal" Visibility="{Binding IsEditMode,Converter={StaticResource BoolToInverseVisibilityConverter}}">
+                <Button Style="{StaticResource Button_ActionStyle}"
                     Command="{Binding SetNoteStatusToCompleted}"
                     ToolTip="Completed"
                     Background="Green"
-                    Visibility="{Binding IsComplated,Converter={StaticResource BoolToInverseVisibilityConverter}}">
-                <iconPacks:PackIconMaterial Margin="0" Kind="Check" SnapsToDevicePixels="True"  Foreground="White"></iconPacks:PackIconMaterial>
-            </Button>
-            <Button Style="{StaticResource Button_ActionStyle}"
+                    Visibility="{Binding IsCompleted,Converter={StaticResource BoolToInverseVisibilityConverter}}">
+                    <iconPacks:PackIconMaterial Margin="0" Kind="Check" SnapsToDevicePixels="True"  Foreground="White"></iconPacks:PackIconMaterial>
+                </Button>
+
+                <Button Style="{StaticResource Button_ActionStyle}"
                     Command="{Binding SetNoteStatusToArchived}"
                     Background="Red"
                     ToolTip="Delete"
-                    Visibility="{Binding IsComplated,Converter={StaticResource BoolToInverseVisibilityConverter }}">
-                <iconPacks:PackIconMaterial Margin="0" Kind="Delete" SnapsToDevicePixels="True"  Foreground="White"></iconPacks:PackIconMaterial>
-            </Button>
+                    Visibility="{Binding IsCompleted,Converter={StaticResource BoolToInverseVisibilityConverter }}">
+                    <iconPacks:PackIconMaterial Margin="0" Kind="Delete" SnapsToDevicePixels="True"  Foreground="White"></iconPacks:PackIconMaterial>
+                </Button>
+            </StackPanel>
             <Button Style="{StaticResource Button_ActionStyle}"
                     Command="{Binding Edit}"
                     ToolTip="Edit"
                     Background="Yellow">
                 <iconPacks:PackIconMaterial Margin="0" Kind="Pencil" SnapsToDevicePixels="True"  Foreground="White"></iconPacks:PackIconMaterial>
             </Button>
+
             <Button Style="{StaticResource Button_ActionStyle}"
                     Command="{Binding SaveChanges}"
                     Background="Blue"
@@ -38,9 +43,23 @@
                 <iconPacks:PackIconMaterial Margin="0" Kind="ContentSave" SnapsToDevicePixels="True"  Foreground="White"></iconPacks:PackIconMaterial>
             </Button>
         </StackPanel>
-        <TextBlock Text="{Binding RemainingTime}" Foreground="AntiqueWhite"></TextBlock>
-        <TextBox  Style="{StaticResource TextBoxTitleStyle}"  IsReadOnly="{Binding IsEditMode,Converter={StaticResource BoolToInverseBooleanConverter}}" Text="{Binding Title}">
-        </TextBox>
+        <DockPanel>
+            <mahapps:DateTimePicker Height="30" Width="200"  DockPanel.Dock="Right"
+                SelectedDate="{Binding Deathline, Mode=TwoWay}" 
+                VerticalAlignment="Top"
+                Margin="0,10"
+                Background="Transparent"
+                BorderBrush="{StaticResource backgroundBrush}"
+                SelectedTimeFormat="Short"                             
+                SelectedDateFormat="Short"/>
+            <TextBox VerticalAlignment="Center"  
+                     Style="{StaticResource TextBoxTitleStyle}" 
+                     DockPanel.Dock="Left" 
+                     IsReadOnly="{Binding IsEditMode,Converter={StaticResource BoolToInverseBooleanConverter}}" 
+                     Text="{Binding Title}">
+            </TextBox>
+        </DockPanel>
+
         <TextBox  Style="{StaticResource TextBoxDetailStyle}"  IsReadOnly="{Binding IsEditMode,Converter={StaticResource BoolToInverseBooleanConverter}}"  Text="{Binding Description}">
         </TextBox>
     </StackPanel>
